@@ -196,7 +196,7 @@ objects:
         # need more cpu upon initialization, therefore burstable class
         requests:
           cpu: 8
-          memory: 32Gi
+          memory: 24Gi
       ports:
       - containerPort: 9200
         name: db
@@ -218,7 +218,7 @@ objects:
       - name: "ES_JAVA_OPTS"
         value: -Xms31G -Xmx31G -XX:ParallelGCThreads=48 -XX:NewRatio=2
     - name: mysql
-      image: mysql:5.7
+      image: docker.io/migs/mysql-5.7
       imagePullPolicy: IfNotPresent
       env:
         - name: MYSQL_ROOT_PASSWORD
