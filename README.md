@@ -11,12 +11,18 @@ The service provides a UI to reflect the relevant stored objects, such as Virtua
 Selecting an object will generate a focused query for kibana/ elasticsearch to presents the logs of all relevant components which are related to this object.
 For example, selecting a Virtual Machine Instance will generate a query that will include the associated virt-launcher, relevant virt-handler and virt-controller and virt-api.
 The query will be bound by the Virtual Machine lifecycle timeline.
- 
+
 ## Running the service
 
 Here are a few steps to quickly get the service up and running. For more
 information and custom configurations about the lvctl command, head to the
 [lvctl documentation](./tools/lvctl/README.md).
+
+### Requirements for the binaries
+Both make and golang need to be installed for RHEL
+~~~
+yum install make golang -y
+~~~
 
 ### Get a lvctl binary
 
@@ -33,6 +39,7 @@ information and custom configurations about the lvctl command, head to the
 
 ### Create an instance of the LogsViewer
 
+The default template creates the pod with a required minimum 8 CPU and 32Gi for memory.  
 ```bash
   # To deploy LogsViewer in the current namespace with default configuration
   ./lvctl setup
